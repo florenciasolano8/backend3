@@ -1,10 +1,12 @@
-import { Router} from 'express';
-import adoptionsController from '../controllers/adoptions.controller.js';
+import { Router } from 'express';
+import { getAdoptionById, getAllAdoptions, createAdoption } from '../controllers/adoptions.controller.js';
 
 const router = Router();
 
-router.get('/',adoptionsController.getAllAdoptions);
-router.get('/:aid',adoptionsController.getAdoption);
-router.post('/:uid/:pid',adoptionsController.createAdoption);
+router.get('/', getAllAdoptions);
+
+router.get('/:aid', getAdoptionById);
+
+router.post('/:uid/:pid', createAdoption);
 
 export default router;
